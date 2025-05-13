@@ -13,7 +13,7 @@ exports.placeOrder = async (req, res) => {
 
 // At the top or wherever your controller is
 exports.getOrdersByCustomer = async (req, res) => {
-  const { customerId } = req.query;
+  const { customerId } = req.params;  // Use req.params instead of req.query
 
   if (!customerId) {
     return res.status(400).json({ message: 'Customer ID is required' });
@@ -27,7 +27,6 @@ exports.getOrdersByCustomer = async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch orders' });
   }
 };
-
 
 exports.getAllOrders = async (req, res) => {
   try {
